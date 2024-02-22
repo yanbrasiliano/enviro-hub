@@ -13,4 +13,6 @@ Welcome to **EnviroHub**, a dedicated repository created to streamline and manag
 
 To use EnviroHub, start by cloning the repository to your local system. Then, navigate to the specific branch that corresponds to your environment version of choice. Each branch in EnviroHub is tailored for a different setup or environment. Follow the README instructions in the respective branch for detailed steps on setting up and using the environment configurations.
 
+## Contributing to EnviroHub:
+
 EnviroHub is an evolving space, welcoming contributions and suggestions to make environment management as efficient and error-free as possible. Dive in and explore a world where setting up your project environments is just a clone away!
