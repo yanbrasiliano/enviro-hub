@@ -119,3 +119,26 @@
 2024-02-23 00:11:34,797 INFO success: laravel-queue entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
 2024-02-23 00:11:34,797 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
 2024-02-23 00:11:34,797 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-02-23 03:47:07,525 INFO Set uid to user 0 succeeded
+2024-02-23 03:47:07,527 INFO supervisord started with pid 1
+2024-02-23 03:47:08,530 INFO spawned: 'cron' with pid 14
+2024-02-23 03:47:08,531 INFO spawned: 'laravel-queue' with pid 15
+2024-02-23 03:47:08,533 INFO spawned: 'nginx' with pid 16
+2024-02-23 03:47:08,534 INFO spawned: 'php-fpm' with pid 17
+2024-02-23 03:47:08,551 WARN exited: laravel-queue (exit status 255; not expected)
+2024-02-23 03:47:09,610 INFO success: cron entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-02-23 03:47:09,611 INFO spawned: 'laravel-queue' with pid 32
+2024-02-23 03:47:09,611 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-02-23 03:47:09,611 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-02-23 03:47:09,629 WARN exited: laravel-queue (exit status 255; not expected)
+2024-02-23 03:47:11,633 INFO spawned: 'laravel-queue' with pid 33
+2024-02-23 03:47:11,656 WARN exited: laravel-queue (exit status 255; not expected)
+2024-02-23 03:47:14,661 INFO spawned: 'laravel-queue' with pid 34
+2024-02-23 03:47:14,683 WARN exited: laravel-queue (exit status 255; not expected)
+2024-02-23 03:47:15,685 INFO gave up: laravel-queue entered FATAL state, too many start retries too quickly
+2024-02-23 03:48:51,499 INFO reaped unknown pid 292 (exit status 0)
+2024-02-23 03:49:05,721 WARN received SIGQUIT indicating exit request
+2024-02-23 03:49:05,721 INFO waiting for cron, nginx, php-fpm to die
+2024-02-23 03:49:05,729 INFO stopped: php-fpm (exit status 0)
+2024-02-23 03:49:05,732 INFO stopped: nginx (exit status 0)
+2024-02-23 03:49:06,734 WARN stopped: cron (terminated by SIGTERM)

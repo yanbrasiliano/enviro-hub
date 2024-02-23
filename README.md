@@ -31,7 +31,7 @@ php artisan key:generate
 ### Access the application at the following address:
 
 ```bash
-http://localhost:8001
+http://localhost:8443
 ```
 
 
