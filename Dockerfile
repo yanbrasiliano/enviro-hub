@@ -39,6 +39,11 @@ RUN apt-get update && apt-get install -y \
   gifsicle \
   libxml2-dev
 
+# Instalar extensão Redis
+RUN pecl install -o -f redis \
+  && rm -rf /tmp/pear \
+  && docker-php-ext-enable redis
+
 # Instalando extensões do PHP
 RUN docker-php-ext-configure zip
 RUN docker-php-ext-configure gd --enable-gd --with-webp --with-jpeg --with-freetype
@@ -52,6 +57,10 @@ RUN pecl install xdebug \
 RUN echo "xdebug.mode=coverage" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
   && echo "xdebug.start_with_request=yes" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
+# Configurando o Supervisor
+RUN mkdir -p /var/log/supervisor
+COPY ./docker/SUPERVISOR/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
 # Configurações adicionais do PHP
 RUN printf 'upload_max_filesize = 16M \npost_max_size = 64M\n' > /usr/local/etc/php/conf.d/uploads.ini
 RUN printf '%s\n%s\n' "max_execution_time = -1" "memory_limit = -1" > /usr/local/etc/php/conf.d/memory.ini
@@ -60,8 +69,17 @@ RUN printf '[PHP]\ndate.timezone = "America/Bahia"\n' > /usr/local/etc/php/conf.
 # Instalando Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
+# Instalando Node.js
+COPY --from=node:18 /usr/local/lib/node_modules /usr/local/lib/node_modules
+COPY --from=node:18 /usr/local/bin/node /usr/local/bin/node
+RUN ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
+
+# Instalando dependências do Node.js
+RUN npm install -g npx yarn gulp-cli cross-env node-sass sass postcss-cli autoprefixer 
+RUN git config --global --add safe.directory /var/www/html
+
 # Configuração do NGINX
-COPY ./docker/nginx/default.conf /etc/nginx/sites-available/default
+COPY ./docker/NGINX/default.conf /etc/nginx/sites-available/default
 RUN if [ -e /etc/nginx/sites-enabled/default ]; then rm /etc/nginx/sites-enabled/default; fi && \
   ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 

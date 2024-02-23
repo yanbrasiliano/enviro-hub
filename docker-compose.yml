@@ -1,0 +1,47 @@
+version: '3.9'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: base-app
+    restart: always
+    ports:
+      - '8001:80'
+      - '3000:3000'
+      - '${VITE_PORT:-5173}:${VITE_PORT:-5173}'
+    volumes:
+      - .:/var/www/html
+      - ./docker/NGINX/default.conf:/etc/nginx/sites-available/default
+      - ./docker/SUPERVISOR/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
+    depends_on:
+      - db
+      - redis
+    environment:
+      - APP_ENV=local
+      - APP_DEBUG=true
+      - CHOKIDAR_USEPOLLING=true
+
+  db:
+    image: postgres:latest
+    container_name: admin-db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=database
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+      - ./docker/PGSQL:/docker-entrypoint-initdb.d
+
+  redis:
+    image: redis:latest
+    container_name: db-redis
+    ports:
+      - "6379:6379"
+
+volumes:
+  pg_data:
+    driver: local
