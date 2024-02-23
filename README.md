@@ -1,6 +1,6 @@
 # Laravel 10 with Docker + Nginx + PGSQL + PHP 8.3 + HTTPS
 
-## Install and Cofniguration
+## Install and Cnnfiguration
 
 ### First copy the .env.example file to .env and configure the database settings:
 
@@ -31,7 +31,7 @@ php artisan key:generate
 ### Access the application at the following address:
 
 ```bash
-http://localhost:8443
+https://localhost:8443
 ```
 
 
