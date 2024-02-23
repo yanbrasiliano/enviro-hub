@@ -1,6 +1,6 @@
 # Laravel 10 with Docker + Nginx + PGSQL + PHP 8.3
 
-## Install and Cofniguration
+## Install and Configuration
 
 ### First copy the .env.example file to .env and configure the database settings:
 
