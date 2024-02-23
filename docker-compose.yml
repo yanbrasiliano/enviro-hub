@@ -18,6 +18,7 @@ services:
     environment:
       APP_ENV: local
       APP_DEBUG: "true"
+    command: /bin/bash -c "./permissions.sh && supervisord -c /etc/supervisor/conf.d/supervisord.conf"
 
   db:
     image: postgres:latest
