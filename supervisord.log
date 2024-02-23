@@ -109,3 +109,13 @@
 2024-02-23 00:06:39,418 INFO stopped: nginx (exit status 0)
 2024-02-23 00:06:39,421 WARN stopped: laravel-queue (terminated by SIGTERM)
 2024-02-23 00:06:39,422 WARN stopped: cron (terminated by SIGTERM)
+2024-02-23 00:11:32,745 INFO Set uid to user 0 succeeded
+2024-02-23 00:11:32,746 INFO supervisord started with pid 1
+2024-02-23 00:11:33,750 INFO spawned: 'cron' with pid 14
+2024-02-23 00:11:33,752 INFO spawned: 'laravel-queue' with pid 15
+2024-02-23 00:11:33,753 INFO spawned: 'nginx' with pid 16
+2024-02-23 00:11:33,755 INFO spawned: 'php-fpm' with pid 17
+2024-02-23 00:11:34,797 INFO success: cron entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-02-23 00:11:34,797 INFO success: laravel-queue entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-02-23 00:11:34,797 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-02-23 00:11:34,797 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
