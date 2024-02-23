@@ -1,4 +1,4 @@
-# Laravel 10 with Docker + Nginx + PGSQL + PHP 8.3
+# Laravel 10 with Docker + Nginx + PGSQL + PHP 8.3 + HTTPS
 
 ## Install and Cofniguration
 
